@@ -1,0 +1,53 @@
+# Qué no se sube al repositorio. Cada bloque dice por qué.
+
+# --- Secretos y configuración de cada máquina -------------------------------
+# .env lleva JWT_SECRET, la clave de API-Football y la contraseña del primer
+# ADMIN. .env.android lleva la IP del PC en la Wi-Fi de casa, que tampoco pinta
+# nada en un repo público. Las plantillas (.env.example) sí se suben.
+.env
+.env.*
+!.env.example
+
+# Claves de firma de la app Android: la plantilla de Capacitor
+# (frontend/android/.gitignore) las deja comentadas, así que se ignoran aquí.
+*.jks
+*.keystore
+*.p12
+
+# --- Dependencias y resultados de compilar ----------------------------------
+# Se regeneran con npm install / mvnw / gradle. target/ son 65 MB de backend.
+node_modules/
+dist/
+target/
+build/
+.gradle/
+# Ruta del SDK de Android, distinta en cada máquina (la escribe Android Studio).
+local.properties
+
+# --- JDK descargado a mano --------------------------------------------------
+# 319 MB de JDK 21 para Windows que viven en la raíz por comodidad. Cada uno
+# instala el suyo; jamás debe acabar en el repositorio.
+jdk-21_windows-x64_bin/
+
+# --- Volcados de datos de terceros ------------------------------------------
+# JSON de Biwenger bajado a mano desde el navegador (ver README): son datos de
+# otro, pesan y se refrescan solos al volver a bajarlos.
+biwinger-laliga.json
+biwenger*.json
+
+# --- IDEs y herramientas locales --------------------------------------------
+.idea/
+*.iml
+.vscode/
+**/nbproject/
+.claude/settings.local.json
+
+# --- Logs y basura del sistema operativo ------------------------------------
+*.log
+logs/
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+*~
+*.swp

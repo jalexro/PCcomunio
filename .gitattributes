@@ -1,0 +1,31 @@
+# Finales de línea. Se desarrolla en Windows (core.autocrlf=true) pero el backend
+# se ejecuta en un contenedor Linux, así que hay que fijar qué lleva cada cosa.
+
+# Por defecto: git normaliza a LF al guardar y usa lo propio de cada sistema al clonar.
+* text=auto
+
+# Scripts de shell: SIEMPRE LF. Con CRLF, Linux y Docker fallan con
+# "/bin/sh^M: bad interpreter". mvnw y gradlew son los importantes.
+*.sh text eol=lf
+mvnw text eol=lf
+gradlew text eol=lf
+Dockerfile text eol=lf
+Dockerfile.* text eol=lf
+*.properties text eol=lf
+*.sql text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+
+# Scripts de Windows: SIEMPRE CRLF o cmd.exe los lee mal.
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Binarios: que git no toque ni un byte ni intente mezclarlos.
+*.jar binary
+*.png binary
+*.jpg binary
+*.ico binary
+*.webp binary
+*.zip binary
+*.keystore binary
+*.jks binary

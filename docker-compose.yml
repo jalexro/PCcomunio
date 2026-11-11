@@ -1,0 +1,62 @@
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: ligacomunio
+      POSTGRES_USER: ligacomunio
+      POSTGRES_PASSWORD: ligacomunio
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ligacomunio"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.dev
+    environment:
+      DB_URL: jdbc:postgresql://db:5432/ligacomunio
+      DB_USER: ligacomunio
+      DB_PASSWORD: ligacomunio
+      API_FOOTBALL_KEY: ${API_FOOTBALL_KEY:-}
+      JWT_SECRET: ${JWT_SECRET:?Define JWT_SECRET en el archivo .env (copia .env.example)}
+      ADMIN_EMAIL: ${ADMIN_EMAIL:-}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-}
+      MAIL_HOST: ${MAIL_HOST:-}
+      MAIL_PORT: ${MAIL_PORT:-587}
+      MAIL_USER: ${MAIL_USER:-}
+      MAIL_PASSWORD: ${MAIL_PASSWORD:-}
+      MAIL_FROM: ${MAIL_FROM:-no-reply@ligacomunio.local}
+      FRONTEND_URL: ${FRONTEND_URL:-http://localhost:5173}
+      EXIGIR_EMAIL_VERIFICADO: ${EXIGIR_EMAIL_VERIFICADO:-false}
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./backend:/app
+      - m2cache:/root/.m2
+    depends_on:
+      db:
+        condition: service_healthy
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    environment:
+      BACKEND_URL: http://backend:8080
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+
+volumes:
+  pgdata:
+  m2cache:

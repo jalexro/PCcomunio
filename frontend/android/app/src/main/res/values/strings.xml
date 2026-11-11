@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">LigaComunio</string>
+    <string name="title_activity_main">LigaComunio</string>
+    <string name="package_name">com.ligacomunio.app</string>
+    <string name="custom_url_scheme">com.ligacomunio.app</string>
+</resources>

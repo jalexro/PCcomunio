@@ -1,0 +1,22 @@
+-- Plantilla de equipos de LaLiga 2025/26. Revisar al empezar cada temporada (ascensos/descensos).
+INSERT INTO team (name, short_name) VALUES
+    ('Deportivo Alavés', 'ALA'),
+    ('Athletic Club', 'ATH'),
+    ('Atlético de Madrid', 'ATM'),
+    ('FC Barcelona', 'BAR'),
+    ('Celta de Vigo', 'CEL'),
+    ('Elche CF', 'ELC'),
+    ('RCD Espanyol', 'ESP'),
+    ('Getafe CF', 'GET'),
+    ('Girona FC', 'GIR'),
+    ('Levante UD', 'LEV'),
+    ('RCD Mallorca', 'MLL'),
+    ('CA Osasuna', 'OSA'),
+    ('Real Oviedo', 'OVI'),
+    ('Rayo Vallecano', 'RAY'),
+    ('Real Betis', 'BET'),
+    ('Real Madrid', 'RMA'),
+    ('Real Sociedad', 'RSO'),
+    ('Sevilla FC', 'SEV'),
+    ('Valencia CF', 'VAL'),
+    ('Villarreal CF', 'VIL');

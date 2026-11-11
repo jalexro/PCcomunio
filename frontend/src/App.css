@@ -1,0 +1,516 @@
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 16px;
+  text-align: left;
+}
+
+.cabecera {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.sesion {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+select,
+input,
+button {
+  padding: 8px;
+  font-size: 1rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 8px;
+  border-bottom: 1px solid #8884;
+  text-align: left;
+}
+
+.error {
+  color: #c0392b;
+}
+
+.error p {
+  margin: 4px 0;
+}
+
+.auth {
+  max-width: 360px;
+}
+
+.auth form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.auth label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.auth .enlace {
+  display: block;
+  margin-top: 12px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: inherit;
+  text-align: left;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Mensajes neutros: verificación de email, enlace de contraseña enviado... */
+.aviso {
+  margin: 12px 0;
+  padding: 8px 12px;
+  border: 1px solid #8884;
+  border-radius: 6px;
+}
+
+.aviso p {
+  margin: 4px 0;
+}
+
+/* --- Ligas --- */
+.logo {
+  color: inherit;
+  text-decoration: none;
+}
+
+.menu,
+.pestanas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.menu a,
+.pestanas a {
+  padding: 6px 12px;
+  border-radius: 6px;
+  color: inherit;
+  text-decoration: none;
+  border: 1px solid #8884;
+}
+
+.menu a.active,
+.pestanas a.active {
+  background: #8883;
+  font-weight: 600;
+}
+
+.pestanas {
+  margin: 16px 0;
+}
+
+.tarjetas {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.tarjetas a {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  border: 1px solid #8884;
+  border-radius: 8px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.dos-columnas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.dos-columnas form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dos-columnas label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.liga-cabecera {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.liga-cabecera p {
+  margin: 4px 0;
+}
+
+.reloj {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.reloj strong {
+  font-size: 1.3rem;
+}
+
+.dueno {
+  margin: 12px 0;
+  padding: 8px 12px;
+  border: 1px dashed #8886;
+  border-radius: 8px;
+}
+
+.dueno-contenido {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+button.activo {
+  font-weight: 700;
+  outline: 2px solid #8886;
+}
+
+tr.yo {
+  background: #8882;
+  font-weight: 600;
+}
+
+tr.titular {
+  background: #3a8f3a18;
+}
+
+.importe {
+  width: 8.5em;
+}
+
+.oferta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+}
+
+.bien {
+  color: #2e7d32;
+}
+
+.mal {
+  color: #c0392b;
+}
+
+code {
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: #8882;
+}
+
+/* Avisos de estado junto al nombre del jugador */
+.insignia {
+  display: inline-block;
+  margin-left: 0.4rem;
+  padding: 0.05rem 0.45rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+.insignia-lesionado {
+  background: #fde2e2;
+  color: #9b1c1c;
+}
+.insignia-sancionado {
+  background: #1f2937;
+  color: #fff;
+}
+.insignia-duda {
+  background: #fef3c7;
+  color: #92400e;
+}
+.insignia-nojugo {
+  background: #e5e7eb;
+  color: #374151;
+}
+@media (prefers-color-scheme: dark) {
+  .insignia-lesionado {
+    background: #5b1b1b;
+    color: #fecaca;
+  }
+  .insignia-sancionado {
+    background: #e5e7eb;
+    color: #111827;
+  }
+  .insignia-duda {
+    background: #5b4210;
+    color: #fde68a;
+  }
+  .insignia-nojugo {
+    background: #374151;
+    color: #e5e7eb;
+  }
+}
+
+/* Panel de opciones de la liga */
+.opciones h3 {
+  margin: 20px 0 8px;
+}
+
+.form-opciones {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 420px;
+}
+
+.form-opciones label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.form-opciones fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border: 1px solid #8886;
+  border-radius: 8px;
+}
+
+.fila-premio {
+  flex-direction: row !important;
+  align-items: center;
+  gap: 8px !important;
+}
+
+.fila-premio input {
+  flex: 1;
+}
+
+
+/* --- Táctica: campo y banquillo --- */
+.ayuda-tactica {
+  font-size: 0.85rem;
+  margin: 8px 0;
+}
+
+/* En pantallas anchas, campo y banquillo uno al lado del otro; apilados en móvil. */
+.tactica {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 16px;
+  align-items: start;
+}
+
+@media (max-width: 720px) {
+  .tactica {
+    grid-template-columns: 1fr;
+  }
+}
+
+/*
+ * El césped. Las franjas son un degradado repetido y las líneas (centro, círculo y áreas) van con
+ * pseudoelementos, así que no hace falta ninguna imagen.
+ */
+.campo {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 4px;
+  padding: 10px 6px;
+  min-height: 420px;
+  border: 2px solid #ffffff66;
+  border-radius: 8px;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    #2f7d32 0,
+    #2f7d32 40px,
+    #35883a 40px,
+    #35883a 80px
+  );
+  overflow: hidden;
+}
+
+/* Línea de medio campo con su círculo. */
+.campo::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  border-top: 2px solid #ffffff55;
+}
+
+.campo::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 92px;
+  height: 92px;
+  transform: translate(-50%, -50%);
+  border: 2px solid #ffffff55;
+  border-radius: 50%;
+}
+
+.linea {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 4px;
+}
+
+/* Un puesto de la alineación: vacío es un hueco de puntos; ocupado, la ficha del jugador. */
+.puesto {
+  flex: 0 1 84px;
+  min-width: 68px;
+  min-height: 62px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 4px;
+  font-size: 0.7rem;
+  line-height: 1.15;
+  color: #fff;
+  text-align: center;
+  background: #0000003d;
+  border: 2px dashed #ffffff88;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.puesto.ocupado {
+  background: #10351ae6;
+  border-style: solid;
+  border-color: #ffffffcc;
+  cursor: grab;
+}
+
+.puesto.elegido {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-border);
+}
+
+.puesto:disabled {
+  cursor: default;
+}
+
+.puesto-nombre {
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.puesto-datos,
+.puesto-vacio {
+  opacity: 0.85;
+  font-size: 0.65rem;
+}
+
+.puesto-vacio {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.banquillo h3 {
+  margin: 0 0 8px;
+}
+
+.banquillo ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-height: 440px;
+  overflow-y: auto;
+}
+
+/* Cada suplente es un botón: así vale tanto para arrastrar como para tocarlo en el móvil. */
+.suplente {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr);
+  grid-template-areas:
+    'pos nombre'
+    'pos datos';
+  gap: 0 8px;
+  padding: 6px 8px;
+  font-size: 0.8rem;
+  text-align: left;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: grab;
+}
+
+.suplente.elegido {
+  border-color: var(--accent);
+  background: var(--accent-bg);
+}
+
+.suplente:disabled {
+  cursor: default;
+}
+
+.suplente-pos {
+  grid-area: pos;
+  align-self: center;
+  font-weight: 600;
+  font-size: 0.7rem;
+  text-align: center;
+  padding: 2px 0;
+  border-radius: 4px;
+  background: var(--accent-bg);
+  color: var(--accent);
+}
+
+.suplente-nombre {
+  grid-area: nombre;
+  font-weight: 600;
+  color: var(--text-h);
+  overflow-wrap: anywhere;
+}
+
+.suplente-datos {
+  grid-area: datos;
+  font-size: 0.7rem;
+  opacity: 0.8;
+}
